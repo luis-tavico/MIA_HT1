@@ -58,8 +58,9 @@ def main():
                 cui = input("Ingrese el CUI: ")
                 name = input("Ingrese el nombre: ")
                 course = input("Ingrese el curso: ")
-                new_professor = Profesor(type, id, cui, name, course)
+                new_professor = Profesor("profesor", id, cui, name, course)
                 write_file(new_professor, 'datos.bin')
+                print("¡Profesor registrado exitosamente!\n")
 
             elif option == 2:
                 type = input("Ingrese el tipo: ")
@@ -67,18 +68,21 @@ def main():
                 cui = input("Ingrese el CUI: ")
                 name = input("Ingrese el nombre: ")
                 license = input("Ingrese el carnet: ")
-                new_student = Estudiante(type, id, cui, name, license)
+                new_student = Estudiante("estudiante", id, cui, name, license)
                 write_file(new_student, 'datos.bin')
+                print("¡Estudiante registrado exitosamente!\n")
 
             elif option == 3:
+                print(" -----------REGISTROS----------- ")
                 try:
                     for item in read_file("datos.bin"):
                         print(item)
                 except FileNotFoundError:
-                    print("¡El archivo no existe!")
+                    print("¡El archivo no existe!\n")
+                print("")
 
             elif option == 4:
-                print("¡Ejecucion Finalizada!")
+                print("¡Ejecucion Finalizada!\n")
                 break
 
             else:
